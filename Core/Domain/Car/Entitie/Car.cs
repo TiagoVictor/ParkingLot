@@ -8,6 +8,7 @@ public class Car
     public string Plate { get; set; }
     public string Model { get; set; }
     public string Manufacturer { get; set; }
+    public List<Ticket.Entitie.Ticket> Tickets { get; set; }
 
     public void ValidateState()
     {

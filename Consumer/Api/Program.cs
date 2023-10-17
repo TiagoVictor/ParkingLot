@@ -1,8 +1,12 @@
 using Application.Car;
 using Application.Car.Ports;
+using Application.Ticket;
+using Application.Ticket.Port;
 using Data;
 using Data.Car;
+using Data.Ticket;
 using Domain.Car.Port;
+using Domain.Ticket.Port;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +24,9 @@ builder.Services.AddControllers();
 
 builder.Services.AddScoped<ICarManager, CarManager>();
 builder.Services.AddScoped<ICarRepository, CarRepository>();
+
+builder.Services.AddScoped<ITicketManager, TicketManager>();
+builder.Services.AddScoped<ITicketRepository, TicketRepository>();
 
 #endregion
 

@@ -9,4 +9,5 @@ public interface ICarManager
     Task DeleteCarAsync(int id);
     Task<CarResponse> GetCarByIdAsync(int id);
     Task<CarResponse> GetCarsAsync();
+    Task<CarResponse> GetCarByPlate(string plate);
 }

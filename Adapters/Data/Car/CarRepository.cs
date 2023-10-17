@@ -33,12 +33,18 @@ public class CarRepository : ICarRepository
             .SaveChangesAsync();
     }
 
-    public Task<Domain.Car.Entitie.Car> GetCarByIdAsync(int id) => 
+    public Task<Domain.Car.Entitie.Car> GetCarByIdAsync(int id) =>
         _dbContext
             .Cars
             .FirstOrDefaultAsync(x => x.Id == id);
 
-    public async Task<List<Domain.Car.Entitie.Car>> GetCarsAsync() => await 
+    public async Task<Domain.Car.Entitie.Car> GetCarByPlate(string plate) =>
+        await _dbContext
+            .Cars
+            .FirstOrDefaultAsync(x => x.Plate == plate);
+
+
+    public async Task<List<Domain.Car.Entitie.Car>> GetCarsAsync() => await
         _dbContext
             .Cars
             .ToListAsync();

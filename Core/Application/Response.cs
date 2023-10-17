@@ -9,6 +9,14 @@ public enum ErrorCodes
     CAR_COULD_NOT_SAVE = 4,
     CAR_COULD_NOT_UPDATE = 5,
     CAR_NOT_FOUND = 6,
+
+    // Ticket ErrorCode 100 to 199
+    TICKET_INVALID_CARID = 100,
+    TICKET_INVALID_START = 101,
+    TICKET_INVALID_END = 102,
+    TICKET_COULD_NOT_SAVE = 103,
+    TICKET_COULD_NOT_UPDATE = 104,
+    TICKET_NOT_FOUND = 105,
 }
 
 public abstract class Response

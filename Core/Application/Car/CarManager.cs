@@ -98,6 +98,27 @@ public class CarManager : ICarManager
         };
     }
 
+    public async Task<CarResponse> GetCarByPlate(string plate)
+    {
+        var car = await _carRepository.GetCarByPlate(plate);
+
+        if (car == null)
+        {
+            return new CarResponse
+            {
+                Success = false,
+                Message = "Car was not found.",
+                ErrorCodes = ErrorCodes.CAR_NOT_FOUND,
+            };
+        }
+
+        return new CarResponse
+        {
+            Success = true,
+            Data = CarDto.MapToDto(car)
+        };
+    }
+
     public async Task<CarResponse> GetCarsAsync()
     {
         var cars = await _carRepository.GetCarsAsync();
@@ -110,7 +131,6 @@ public class CarManager : ICarManager
             Cars = carsResponse.Cars
         };
     }
-
     public async Task<CarResponse> UpdateCarAsync(UpdateCarRequest request)
     {
         try
